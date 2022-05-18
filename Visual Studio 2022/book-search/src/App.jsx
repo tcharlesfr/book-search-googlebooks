@@ -88,36 +88,36 @@ function App() {
         <hr />
         <>
           { result.length > 0 ?
-            result.map(livro => (
+            result.map(book => (
             <form className="form">
-              <img src={livro.volumeInfo.imageLinks.thumbnail} alt={livro.title}/>
+              <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.title}/>
               <div className="books">
-                <p><strong>Título:</strong>  {livro.volumeInfo.title}</p>
-                <p><strong>Autores:</strong>  {livro.volumeInfo.authors}</p>
+                <p><strong>Título:</strong>  {book.volumeInfo.title}</p>
+                <p><strong>Autores:</strong>  {book.volumeInfo.authors}</p>
                 <div>
                   {
-                    livro.volumeInfo.industryIdentifiers
-                    ? livro.volumeInfo.industryIdentifiers.map(isbn => <p key={isbn.identifier}>{isbn.type}
+                    book.volumeInfo.industryIdentifiers
+                    ? book.volumeInfo.industryIdentifiers.map(isbn => <p key={isbn.identifier}>{isbn.type}
                     : {isbn.identifier}.</p>) : <p></p>
                   }
                 </div>
                 <button
-                type="button"                
+                type="button"
                 onClick={() => {
-                  const newFavorite = [...favorite,livro];
+                  const newFavorite = [...favorite,book];
                   let search = favorite.find(favorite => (
-                    favorite.volumeInfo.title === livro.volumeInfo.title
+                    favorite.volumeInfo.title === book.volumeInfo.title
                   ));
                   search
-                  ? alert("livro já adicionado")                  
+                  ? alert("livro já adicionado")
                   : setFavorite(newFavorite)
                 }}>
                   Adicionar aos favoritos
                 </button>
-              </div>           
+              </div>
             </form>
           ))
-        : "Não há livros"
+          : "Não há livros"
         }
         </>
       </>
