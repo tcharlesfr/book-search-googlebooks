@@ -12,13 +12,12 @@ import './App.css';
 function App() {
 
   const ApiKey = "AIzaSyCSwds21YcNdCFc_qCW8infpMTppxWta6s";
-  const [result, setResult] = useState([]);  
-  const [inputData, setInputData] = useState("");
-  const [favorite, setFavorite] = useState([]);
+  const [result, setResult] = useState([]);
+  const [favorite, setFavorite] = useState([]);  
+  const [inputData, setInputData] = useState("");  
 
   const handleInputData = (input) => {
-    const data = input.target.value;
-    setInputData(data);
+    setInputData(input.target.value);
   }
 
   const handleBookSearchISBN = async () => {    
